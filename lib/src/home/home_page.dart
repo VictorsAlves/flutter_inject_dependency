@@ -10,9 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
-
   @override
   Widget build(BuildContext context) {
 
@@ -20,7 +17,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Te Vi e te Kiss'),
+        title: Text('teste'),
       ),
       body: StreamBuilder<List<Post>>(
         stream: bloc.listOut,
@@ -32,7 +29,9 @@ class _HomePageState extends State<HomePage> {
           List<Post> posts = snapshot.data;
           return ListView.separated(
             itemCount: posts.length,
-            itemBuilder: (BuildContext context, int index) {},
+            itemBuilder: (BuildContext context, int index) {
+              return ListTile(title: Text(posts[index].title),);
+            },
             separatorBuilder: (BuildContext context, int index) {
               return Divider();
             },

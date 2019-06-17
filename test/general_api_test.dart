@@ -10,5 +10,5 @@ main() {
     List<Post> data = await api.getPosts();
 
     expect(data[0].id, 1);
-  });
+  }, skip: true);
 }
