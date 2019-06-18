@@ -5,6 +5,7 @@ import 'package:relacionamento_app/src/home/home_bloc.dart';
 import 'package:relacionamento_app/src/home/home_page.dart';
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
+import 'package:relacionamento_app/src/login/login_bloc.dart';
 import 'package:relacionamento_app/src/shared/repositories/client_http.dart';
 import 'package:relacionamento_app/src/shared/repositories/general_api.dart';
 
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
       ],
       blocs: [
         Bloc((i) => HomeBloc(i.get<GeneralApi>())),
+        Bloc((i)  => LoginBloc( )),
       ],
     );
   }
