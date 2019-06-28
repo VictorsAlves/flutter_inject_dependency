@@ -1,8 +1,9 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:relacionamento_app/src/home/home_bloc.dart';
-
 import 'package:relacionamento_app/src/home/home_page.dart';
+import 'package:relacionamento_app/src/login/login_page.dart';
+import 'package:relacionamento_app/src/dashboard/dashboard_page.dart';
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:relacionamento_app/src/login/login_bloc.dart';
@@ -24,7 +25,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
 
-      home: HomePage(),
+      //home: LoginPage(),
+      routes: <String, WidgetBuilder>{
+        '/': (BuildContext context) => new DashboardPage(),
+        '/home': (BuildContext context) => new HomePage() ,
+        '/login': (BuildContext context) => new LoginPage() ,
+      },
+      initialRoute: '/',
     );
 
     return BlocProvider(
@@ -35,7 +42,7 @@ class MyApp extends StatelessWidget {
       ],
       blocs: [
         Bloc((i) => HomeBloc(i.get<GeneralApi>())),
-        Bloc((i)  => LoginBloc( )),
+        Bloc((i) => LoginBloc( )),
       ],
     );
   }

@@ -1,8 +1,9 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'login_bloc.dart';
+import 'package:relacionamento_app/src/home/home_page.dart';
+
 
 class LoginPage extends StatelessWidget {
   @override
@@ -33,15 +34,44 @@ class _LoginContent extends StatelessWidget {
 
     _butons() {
       return Column(
-        children: <Widget>[
-          RaisedButton.icon(
-              textColor: Colors.white,
-              color: Colors.red,
-              icon: Icon(FontAwesomeIcons.google),
-              label: Text("Login Com Google "),
-              onPressed: bloc.onClickGoogle)
-        ],
+          children: <Widget>[
+      RaisedButton.icon(
+      textColor: Colors.white,
+          color: Colors.red,
+          icon: Icon(FontAwesomeIcons.google),
+          label: Text("Login Com Google "),
+          onPressed:   ()
+      {if (bloc.onClickGoogle() != null ) {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+      }else print('erro !');},
+      ),
+      RaisedButton.icon(
+      textColor: Colors.white,
+      color: Colors.blue,
+      icon: Icon(FontAwesomeIcons.facebookF),
+      label: Text("Login Com Facebook "),
+      onPressed: () {},
+      )
+      ,
+      ]
+      ,
       );
     }
+
+    return
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        // configura onde vai começar o alinhamento
+        children: <Widget>[
+          FlutterLogo(
+            size: 71,
+          ),
+          _butons(),
+          Container(
+            height: 121,
+          ),
+        ],
+      );
   }
 }

@@ -1,16 +1,20 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:relacionamento_app/src/shared/services/authentication/Authentication.dart';
 import 'package:relacionamento_app/src/home/home_page.dart';
 
-class LoginBloc implements BlocBase{
+class LoginBloc implements BlocBase {
   final _authentication = new Authentication();
 
 
-  onClickGoogle(){
 
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+
+  onClickGoogle() {
+    return true;
+
   }
+
 
 
   @override
@@ -36,8 +40,4 @@ class LoginBloc implements BlocBase{
   void removeListener(listener) {
     // TODO: implement removeListener
   }
-
-
-
-
 }
