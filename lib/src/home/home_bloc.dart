@@ -7,7 +7,7 @@ import 'package:rxdart/rxdart.dart';
 class HomeBloc implements BlocBase{
   final GeneralApi api;
 
-  HomeBloc(this.api);
+HomeBloc(this.api);
 
 final BehaviorSubject _listController = BehaviorSubject(seedValue: true);
 

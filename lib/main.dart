@@ -7,6 +7,7 @@ import 'package:relacionamento_app/src/dashboard/dashboard_page.dart';
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:relacionamento_app/src/login/login_bloc.dart';
+import 'package:relacionamento_app/src/menu/menu_page.dart';
 import 'package:relacionamento_app/src/shared/repositories/client_http.dart';
 import 'package:relacionamento_app/src/shared/repositories/general_api.dart';
 
@@ -23,13 +24,14 @@ class MyApp extends StatelessWidget {
       title: 'teste',
       theme: ThemeData(
         primarySwatch: Colors.green,
-      ),
+      ),debugShowCheckedModeBanner: false,
 
       //home: LoginPage(),
       routes: <String, WidgetBuilder>{
         '/': (BuildContext context) => new DashboardPage(),
         '/home': (BuildContext context) => new HomePage() ,
         '/login': (BuildContext context) => new LoginPage() ,
+        '/menu': (BuildContext context) => new MenuPage() ,
       },
       initialRoute: '/',
     );
